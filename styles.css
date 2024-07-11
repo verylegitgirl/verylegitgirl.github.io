@@ -9,7 +9,7 @@ html, body {
 }
 
 .container {
-    transform: scale(0.8);
+    transform: scale(0.8); /* Уменьшить на 20% */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -57,7 +57,7 @@ p {
 
 .footer-text {
     margin-top: 20px;
-    font-size: 16px;
+    font-size: 13px;
     text-align: center;
 }
 
