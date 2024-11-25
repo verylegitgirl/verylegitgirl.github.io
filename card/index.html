@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>продам гараж</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: teal;
+            font-family: "Comic Sans MS", sans-serif;
+            color: yellow;
+            text-align: center;
+        }
+        .language-switcher {
+            margin: 10px 0;
+			right: 0;
+			top: 0;
+			position: absolute;
+
+        }
+        .language-switcher button {
+            padding: 5px 10px;
+            border: 2px solid white;
+            background: blue;
+            color: yellow;
+            font-weight: bold;
+            text-shadow: 1px 1px 0 black;
+            cursor: pointer;
+            transition: all 0.2s ease;
+        }
+        .language-switcher button:hover {
+            background: red;
+            color: white;
+        }
+        .container {
+            margin: 50px auto;
+            border: 5px solid lime;
+            width: 80%;
+            background: linear-gradient(to bottom, pink, lightblue);
+            box-shadow: 0 0 20px magenta;
+            padding: 20px;
+        }
+        h1 {
+            text-shadow: 2px 2px 0 red;
+            font-size: 3rem;
+            margin: 20px;
+        }
+        .contacts {
+            background: black;
+            color: white;
+            padding: 20px;
+            margin: 20px;
+            border: 3px dashed yellow;
+        }
+        .windows-container {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+        .window {
+            padding: 20px;
+            border: 5px solid lime;
+            background: yellow;
+            color: black;
+            box-shadow: 0 0 15px lime;
+            flex: 1;
+            max-width: 400px;
+        }
+        .window h2 {
+            text-shadow: 1px 1px 0 red;
+            margin-bottom: 10px;
+        }
+        .buttons {
+            margin: 10px 0;
+        }
+        .buttons a {
+            display: inline-block;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            background: orange;
+            padding: 10px 20px;
+            border: 3px solid black;
+            margin: 5px;
+            text-shadow: 1px 1px 0 white;
+            transition: all 0.2s ease-in-out;
+        }
+        .buttons a:hover {
+            background: red;
+            color: yellow;
+            border-color: white;
+        }
+        marquee {
+            margin: 20px 0;
+            color: red;
+            font-weight: bold;
+            font-size: 1.5rem;
+        }
+    </style>
+</head>
+<body>
+    <!-- Переключатель языка -->
+    <div class="language-switcher">
+        <button onclick="switchLanguage('ru')">Русский</button>
+        <button onclick="switchLanguage('en')">English</button>
+    </div>
+
+    <div class="container">
+        <h1 id="header"></h1>
+        <marquee id="marquee" behavior="scroll" direction="left"></marquee>
+
+        <div class="contacts">
+            <p><b id="name-label"></b></p>
+            <p><b id="phone-label"></b></p>
+            <p><b id="email-label"></b></p>
+        </div>
+
+        <div class="windows-container">
+            <!-- Окно с кнопками для блога и GitHub -->
+            <div class="window">
+                <h2 id="blog-github-header"></h2>
+                <div class="buttons">
+                    <a href="https://discordapp.com/users/695890926689845379" id="blog-link"></a>
+                    <a href="https://github.com/verylegitgirl" id="github-link"></a>
+                    <a href="https://github.com/CodelessHeart" id="github-link">Github 2</a>
+                    <a href="https://www.youtube.com/@preremixer" id="github-link">Youtube</a>
+                </div>
+            </div>
+
+            <!-- Окно с кнопками для примеров -->
+            <div class="window">
+                <h2 id="examples-header"></h2>
+                <div class="buttons">
+                    <a href="https://docs.google.com/spreadsheets/d/160JhtQw6WUgMIEPRwfbSg5kIYVrk3xkxUkbGTNpTOWk/edit?usp=sharing" id="example1-link"></a>
+                    <a href="https://docs.google.com/spreadsheets/d/1P6teUXvGOIdjT1mn9tQxmeLL1e1fzcJ-XrEeOdfx4Ic/edit?usp=sharing" id="example2-link"></a>
+					<a href="https://verylegitgirl.github.io" id="example2-link">Scripts</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const translations = {
+            en: {
+                header: "that is card?!",
+                marquee: "do you wanna a translation (﻿ ͡° ͜ʖ ͡°)",
+                nameLabel: "NekoMaya",
+                phoneLabel: "I am translator to Russian.",
+                emailLabel: "I can translate and adapt your video, game or make subtitles for free.",
+                blogGithubHeader: "my links (dm me)",
+                examplesHeader: "Examples",
+                blogLink: "Discord",
+                githubLink: "GitHub",
+                example1Link: "Youtube",
+                example2Link: "Games"
+            },
+            ru: {
+                header: "ну типо визитка, не?",
+                marquee: "сделаю перевод за сорок гривень",
+                nameLabel: "NekoMaya",
+                phoneLabel: "Переводчик кусковой, развесной.",
+                emailLabel: "Могу сделать вам перевод, адаптацию, субтитры для вас, бесплатно.",
+                blogGithubHeader: "мои ссылки",
+                examplesHeader: "Примеры",
+                blogLink: "Discord",
+                githubLink: "GitHub",
+                example1Link: "Youtube",
+                example2Link: "Games"
+            }
+        };
+
+        function switchLanguage(lang) {
+            const elements = {
+                header: document.getElementById("header"),
+                marquee: document.getElementById("marquee"),
+                nameLabel: document.getElementById("name-label"),
+                phoneLabel: document.getElementById("phone-label"),
+                emailLabel: document.getElementById("email-label"),
+                blogGithubHeader: document.getElementById("blog-github-header"),
+                examplesHeader: document.getElementById("examples-header"),
+                blogLink: document.getElementById("blog-link"),
+                githubLink: document.getElementById("github-link"),
+                example1Link: document.getElementById("example1-link"),
+                example2Link: document.getElementById("example2-link")
+            };
+
+            for (const key in elements) {
+                elements[key].textContent = translations[lang][key];
+            }
+        }
+        function onPageLoad() {
+			switchLanguage('en');
+        }
+        document.addEventListener('DOMContentLoaded', onPageLoad);
+    </script>
+</body>
+</html>
