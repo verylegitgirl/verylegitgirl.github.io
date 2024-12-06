@@ -1,0 +1,274 @@
+<html><head><base href="/" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Chaos Translation Services</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Permanent+Marker&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #000;
+    min-height: 100vh;
+    overflow-x: hidden;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.background-shapes {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    opacity: 0.3;
+}
+
+.shape {
+    position: absolute;
+    animation: float 10s infinite linear;
+}
+
+@keyframes float {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, 20px) rotate(180deg); }
+    100% { transform: translate(0, 0) rotate(360deg); }
+}
+
+.info-window {
+    background: rgba(0, 255, 255, 0.1);
+    border: 2px solid #0ff;
+    padding: 2rem;
+    margin: 2rem auto;
+    max-width: 800px;
+    border-radius: 10px;
+    text-align: center;
+    backdrop-filter: blur(5px);
+    animation: glow 2s infinite;
+}
+
+.info-window h1 {
+    color: #0ff;
+    font-size: 2em;
+    margin-bottom: 1rem;
+}
+
+.info-window p {
+    color: #fff;
+    margin: 1rem 0;
+    line-height: 1.5;
+}
+
+.language-switch {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    background: rgba(255, 0, 255, 0.2);
+    padding: 0.5rem;
+    border: 2px solid #f0f;
+    border-radius: 5px;
+    color: #fff;
+    cursor: pointer;
+    font-family: 'Press Start 2P', cursive;
+    transition: all 0.3s ease;
+}
+
+.language-switch:hover {
+    background: rgba(255, 0, 255, 0.4);
+}
+
+@keyframes glow {
+    0% { box-shadow: 0 0 10px #0ff; }
+    50% { box-shadow: 0 0 20px #f0f, 0 0 30px #f0f; }
+    100% { box-shadow: 0 0 10px #0ff; }
+}
+
+.card-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    padding: 2rem;
+}
+
+.card {
+    background: rgba(255, 0, 255, 0.1);
+    border: 2px solid #0ff;
+    padding: 1.5rem;
+    border-radius: 10px;
+    max-width: 300px;
+    transform: rotate(var(--rotation));
+    transition: all 0.3s ease;
+    backdrop-filter: blur(5px);
+}
+
+.card:hover {
+    transform: scale(1.05) rotate(calc(var(--rotation) * -1));
+    box-shadow: 0 0 20px #f0f;
+}
+
+.card h2 {
+    color: #0ff;
+    margin-bottom: 1rem;
+    font-family: 'Permanent Marker', cursive;
+}
+
+.card a {
+    color: #f0f;
+    text-decoration: none;
+    display: block;
+    margin: 0.5rem 0;
+    transition: color 0.3s ease;
+}
+
+.card a:hover {
+    color: #ff0;
+    text-shadow: 0 0 5px #ff0;
+}
+
+.easter-egg {
+    position: fixed;
+    top: 10px;
+    left: 10px;
+    width: 20px;
+    height: 20px;
+    background: transparent;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: rgba(0, 0, 0, 0.9);
+    padding: 2rem;
+    border: 2px solid #0ff;
+    border-radius: 10px;
+    z-index: 1000;
+    color: #0ff;
+}
+
+.modal-close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: #f0f;
+    cursor: pointer;
+}
+</style>
+</head>
+<body>
+    <div class="background-shapes" id="shapes"></div>
+    
+    <button class="language-switch" id="langSwitch">EN</button>
+
+    <div class="info-window">
+        <h1 class="lang-ru">NekoMaya</h1>
+        <h1 class="lang-en" style="display: none">NekoMaya</h1>
+        <p class="lang-ru">Я делаю бесплатные переводы видео и игр! Свяжитесь со мной для сотрудничества.</p>
+        <p class="lang-en" style="display: none">I make free translations of videos and games! Contact me for collaboration.</p>
+    </div>
+
+    <div class="card-container">
+        <div class="card" style="--rotation: -3deg">
+            <h2 class="lang-ru">писать сюда</h2>
+            <h2 class="lang-en" style="display: none">dm me here</h2>
+            <a href="https://discordapp.com/users/695890926689845379" target="_blank">Discord</a>
+            <a href="https://github.com/verylegitgirl" target="_blank">GitHub</a>
+            <a href="https://www.youtube.com/@preremixer" target="_blank">YouTube</a>
+        </div>
+
+        <div class="card" style="--rotation: 2deg">
+            <h2 class="lang-ru">смотреть сюда</h2>
+            <h2 class="lang-en" style="display: none">projects</h2>
+            <a href="https://docs.google.com/spreadsheets/d/160JhtQw6WUgMIEPRwfbSg5kIYVrk3xkxUkbGTNpTOWk/edit?usp=sharing" target="_blank" class="lang-ru">YouTube субтитры</a>
+            <a href="https://docs.google.com/spreadsheets/d/160JhtQw6WUgMIEPRwfbSg5kIYVrk3xkxUkbGTNpTOWk/edit?usp=sharing" target="_blank" class="lang-en" style="display: none">YouTube Subtitles</a>
+            <a href="https://docs.google.com/spreadsheets/d/1P6teUXvGOIdjT1mn9tQxmeLL1e1fzcJ-XrEeOdfx4Ic/edit?usp=sharing" target="_blank" class="lang-ru">Игры</a>
+            <a href="https://docs.google.com/spreadsheets/d/1P6teUXvGOIdjT1mn9tQxmeLL1e1fzcJ-XrEeOdfx4Ic/edit?usp=sharing" target="_blank" class="lang-en" style="display: none">Games</a>
+            <a href="https://verylegitgirl.github.io" target="_blank" class="lang-ru">UC скрипты</a>
+            <a href="https://verylegitgirl.github.io" target="_blank" class="lang-en" style="display: none">UC Scripts</a>
+        </div>
+    </div>
+
+    <div class="easter-egg" id="easterEgg"></div>
+    
+    <div class="modal" id="modal">
+        <div class="modal-close" id="modalClose">×</div>
+        <h3 class="lang-ru">Секретный факт!</h3>
+        <h3 class="lang-en" style="display: none">Secret Fact!</h3>
+        <p class="lang-ru">Знаете ли вы, что самая длинная игра, которую я перевел, содержала более 1 миллиона символов текста? 🎮✨</p>
+        <p class="lang-en" style="display: none">Did you know that the longest game I've translated contained over 1 million characters of text? 🎮✨</p>
+    </div>
+
+    <script>
+    // Generate random shapes
+    const shapes = document.getElementById('shapes');
+    const colors = ['#0ff', '#f0f', '#ff0'];
+    const shapeTypes = ['■', '●', '▲'];
+    
+    for(let i = 0; i < 50; i++) {
+        const shape = document.createElement('div');
+        shape.className = 'shape';
+        shape.style.left = Math.random() * 100 + 'vw';
+        shape.style.top = Math.random() * 100 + 'vh';
+        shape.style.color = colors[Math.floor(Math.random() * colors.length)];
+        shape.style.fontSize = (Math.random() * 30 + 10) + 'px';
+        shape.textContent = shapeTypes[Math.floor(Math.random() * shapeTypes.length)];
+        shape.style.animationDelay = (Math.random() * 10) + 's';
+        shapes.appendChild(shape);
+    }
+
+    // Easter egg functionality
+    const easterEgg = document.getElementById('easterEgg');
+    const modal = document.getElementById('modal');
+    const modalClose = document.getElementById('modalClose');
+
+    easterEgg.addEventListener('click', () => {
+        modal.style.display = 'block';
+    });
+
+    modalClose.addEventListener('click', () => {
+        modal.style.display = 'none';
+    });
+
+    // Language switch functionality
+const langSwitch = document.getElementById('langSwitch');
+let isEnglish = false;
+
+// Функция для переключения языка
+function switchLanguage(toEnglish) {
+    isEnglish = toEnglish;
+    document.querySelectorAll('.lang-ru').forEach(el => {
+        el.style.display = isEnglish ? 'none' : 'block';
+    });
+    document.querySelectorAll('.lang-en').forEach(el => {
+        el.style.display = isEnglish ? 'block' : 'none';
+    });
+    langSwitch.textContent = isEnglish ? 'RU' : 'EN';
+}
+
+// Устанавливаем английский язык при загрузке страницы
+document.addEventListener('DOMContentLoaded', () => {
+    switchLanguage(true); // Включаем английский язык
+});
+
+// Обработчик переключения языка
+langSwitch.addEventListener('click', () => {
+    switchLanguage(!isEnglish); // Переключение языка
+});
+
+
+    // Random background color changes
+    setInterval(() => {
+        document.body.style.backgroundColor = `hsl(${Math.random() * 360}, 50%, 5%)`;
+    }, 5000);
+    </script>
+</body>
+</html>
